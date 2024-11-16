@@ -1,6 +1,8 @@
+import s from "./ImageCard.module.css";
+
 const ImageCard = () => {
   return (
-    <div>
+    <div className={s.wrapper}>
       <img src="" alt="" />
     </div>
   );
