@@ -1,25 +1,32 @@
-import { Field, Form, Formik } from "formik";
+import { useState } from "react";
 
-const SearchBar = ({ onChangeQuery }) => {
-  const initialValues = { query: "" };
-  const handleSubmit = (values, options) => {
-    console.log(values);
-    onChangeQuery(values.query);
-    options.resetForm();
+const SearchBar = ({ onSubmit }) => {
+  const [query, setQuery] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!query.trim()) {
+      return alert("Field is empty!");
+    }
+    onSubmit(query);
+    setQuery("");
+  };
+  const handleChange = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
     <header>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
-          <Field
-            name="query"
-            type="text"
-            placeholder="Search images and photos"
-          />
-          <button type="submit">Search</button>
-        </Form>
-      </Formik>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleChange}
+          name="query"
+          type="text"
+          autoFocus
+          placeholder="Search images and photos"
+          value={query}
+        />
+        <button type="submit">Search</button>
+      </form>
     </header>
   );
 };
