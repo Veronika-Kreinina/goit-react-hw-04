@@ -1,11 +1,13 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!query.trim()) {
-      return alert("Field is empty!");
+      toast.error("Field is empty!");
+      return;
     }
     onSubmit(query);
     setQuery("");
@@ -21,6 +23,7 @@ const SearchBar = ({ onSubmit }) => {
           onChange={handleChange}
           name="query"
           type="text"
+          autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
           value={query}

@@ -9,6 +9,7 @@ const ErrorMessage = () => {
       color: "#fff",
     },
   });
+  return null;
 };
 
 export default ErrorMessage;

@@ -8,8 +8,8 @@ const customStyles = {
     zIndex: 1000,
   },
   content: {
-    maxWidth: "80%", // Максимальна ширина модалки
-    maxHeight: "80%", // Максимальна висота модалки
+    maxWidth: "80%",
+    maxHeight: "80%",
     padding: "0px",
     border: "none",
     display: "flex",
@@ -17,7 +17,6 @@ const customStyles = {
     alignItems: "center",
     overflow: "hidden",
     position: "relative",
-    borderRadius: "8px", // Додаємо округлі кути
   },
 };
 Modal.setAppElement("#root");

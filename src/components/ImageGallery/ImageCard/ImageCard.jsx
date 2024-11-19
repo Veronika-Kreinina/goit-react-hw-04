@@ -1,12 +1,13 @@
 import s from "./ImageCard.module.css";
 
-const ImageCard = ({ openModal, alt, regularUrl, smallUrl }) => {
+const ImageCard = ({ openModal, alt_description, small, regular }) => {
   return (
     <div className={s.column}>
       <img
-        onClick={() => openModal(regularUrl, alt)}
-        src={smallUrl}
-        alt={alt}
+        onClick={() => openModal(regular, alt_description)}
+        src={small}
+        alt={alt_description}
+        title={alt_description}
       />
     </div>
   );
