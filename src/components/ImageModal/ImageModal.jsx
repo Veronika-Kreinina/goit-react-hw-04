@@ -1,4 +1,5 @@
 import Modal from "react-modal";
+import s from "./ImageModal.module.css";
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -23,7 +24,7 @@ Modal.setAppElement("#root");
 const ImageModal = ({ modalOpen, closeModal, src, alt }) => {
   return (
     <Modal isOpen={modalOpen} onRequestClose={closeModal} style={customStyles}>
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} className={s.item} />
     </Modal>
   );
 };

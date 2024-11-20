@@ -7,6 +7,8 @@ body {
   margin: 0;
   display: flex;
   min-height: 100vh;
+  justify-content: center;
+  align-items: start;
 }
 
 h1,
@@ -20,23 +22,23 @@ h6 {
 
 button {
   border-radius: 8px;
-  border: 1px solid gray;
+  border: 1px solid darkblue;
   padding: 8px 12px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: black;
+  background-color: royalblue;
+  color: white;
 }
 
 input {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid gray;
+  border: 1px solid darkblue;
   width: 180px;
+  margin: 0 10px;
 }
 
 li {

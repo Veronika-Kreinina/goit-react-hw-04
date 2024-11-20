@@ -1,19 +1,11 @@
 .wrapper {
-  width: 200px;
-  height: 100%;
-}
-.row {
-  padding: 0 8px;
-  padding: 0 8px;
+  width: calc(100vw / 4);
+  overflow: hidden; /* Забезпечує обрізання зображення */
+  aspect-ratio: 16 / 9;
 }
 
-/* Create two equal columns that sits next to each other */
-.column {
-  float: left;
-  width: 25%;
-}
-
-.column img {
+.item {
+  object-fit: cover;
   width: 100%;
   height: auto;
 }

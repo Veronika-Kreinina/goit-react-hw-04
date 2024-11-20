@@ -28,14 +28,13 @@ function App() {
     const fetchImages = async () => {
       setIsLoad(true);
       try {
-        const { total, results, per_page } = await getPhotos(query, page);
+        const { results, total_pages } = await getPhotos(query, page);
         if (results.length === 0) {
           setIsEmpty(true);
           return;
         }
-        console.log(await getPhotos(query, page));
         setImages((prev) => [...prev, ...results]);
-        setIsVisible(page < Math.ceil(total / per_page));
+        setIsVisible(page < total_pages);
       } catch (error) {
         console.log(error);
         setIsError("Please try again");
@@ -59,7 +58,7 @@ function App() {
   };
   const openModal = (urls, alt_description) => {
     setModalOpen(true);
-    setModalSrc(urls.regular);
+    setModalSrc(urls);
     setModalAlt(alt_description);
   };
 
@@ -75,7 +74,7 @@ function App() {
       <ImageGallery images={images} openModal={openModal} />
       {isLoad && <Loader />}
       {isError && <ErrorMessage />}
-      {isEmpty && <p>Please enter text before searching for images</p>}
+      {isEmpty && <text>Oops. Nothing for your search</text>}
       {isVisible && !isLoad && (
         <LoadMoreBtn onClick={handleLoadMore} disabled={isLoad} />
       )}
